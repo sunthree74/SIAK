@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Staff extends Model
+class Mengerjakan extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -12,8 +12,13 @@ class Staff extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id', 'gelar_depan', 'gelar_belakang', 'gender', 'tempat_lahir', 'tanggal_lahir', 'jabatan', 'pendidikan_terakhir', 'alamat',
+        'tugas_id', 'user_id', 'body', 'files', 'status', 
     ];
+
+    public function tugas()
+    {
+        return $this->belongsTo(Tugas::class, 'tugas_id');
+    }
 
     public function user()
     {

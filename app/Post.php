@@ -14,4 +14,14 @@ class Post extends Model
     protected $fillable = [
         'slug', 'kelas_id', 'user_id', 'body', 
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function kelas()
+    {
+        return $this->belongsTo(Kelas::class, 'kelas_id');
+    }
 }

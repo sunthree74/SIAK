@@ -16,9 +16,9 @@ class CreateKelasTable extends Migration
         Schema::create('kelas', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nama');
-            $table->string('tahun_ajaran');
             $table->unsignedBigInteger('major_id')->index();
             $table->unsignedBigInteger('user_id')->index()->comment('Wali kelas');
+            $table->integer('status',1)->default(1);
             $table->timestamps();
         });
     }
